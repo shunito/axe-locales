@@ -5,22 +5,21 @@ interface localeArray extends Array<locale> {}
 
 import {locales} from './locales.json';
 
-// comment
-function requireLocale(lang: string): any {
+function requireLocale(lang: string): Object {
   if(locales.includes(lang)){
     try {
       const AXE_LOCALE = require(`axe-core/locales/${lang}.json`);
       return AXE_LOCALE;
     } catch ( error ){
-      return false;
+      return {};
     }
   }
   else{
-    return false;
+    return {};
   }
 }
 
-export function axeLocale (lang: string) {
+export function axeLocale (lang: string): Object {
   if( lang.length === 0 || lang === 'auto') {
     const language = (window.navigator.languages && window.navigator.languages[0]) || window.navigator.language;
     return requireLocale(language);
@@ -30,6 +29,6 @@ export function axeLocale (lang: string) {
   }
 }
 
-export function getLocaleList () {
+export function getLocaleList (): localeArray {
   return locales;
 }

@@ -11,16 +11,15 @@ test('Locale list is not empty', () => {
 
 test('Read JA Locale is fine', () => {
   const loc = axeLocale("ja");
-  expect( loc ).toBeTruthy();
+  expect( loc.lang ).toBe("ja");
 });
 
 test('Read Zombie Locale is Undefined', () => {
   const loc = axeLocale("zombie");
-  expect( loc ).toBeFalsy();
+  expect( loc.lang ).toBeUndefined();
 });
 
 test('Auto Language select (Mock de)', () => {
-
   // Set browser Languages to 'de'
   Object.defineProperty(window.navigator, "languages", {
     value: ['de'],

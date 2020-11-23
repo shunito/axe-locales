@@ -10,11 +10,11 @@ function requireLocale(lang) {
             return AXE_LOCALE;
         }
         catch (error) {
-            return false;
+            return {};
         }
     }
     else {
-        return false;
+        return {};
     }
 }
 function axeLocale(lang) {
