@@ -9,16 +9,14 @@ import {locales} from './locales.json';
 function requireLocation(lang: string): any {
   if(locales.includes(lang)){
     const AXE_LOCALE = require(`axe-core/locales/${lang}.json`);
-    return {
-      locale: AXE_LOCALE
-    };
+    return AXE_LOCALE;
   }
   else{
-    return {};
+    return false;
   }
 }
 
-export default function axeLocation (lang: string) {
+export function axeLocale (lang: string) {
   if( lang.length === 0 || lang === 'auto'){
     const language = (window.navigator.languages && window.navigator.languages[0]) || window.navigator.language;
     return requireLocation(language);
@@ -28,6 +26,6 @@ export default function axeLocation (lang: string) {
   }
 }
 
-
-// dev
-console.log(locales);
+export function getLocaleList () {
+  return locales;
+}

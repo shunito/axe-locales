@@ -1,19 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getLocaleList = exports.axeLocale = void 0;
 const locales_json_1 = require("./locales.json");
 // comment
 function requireLocation(lang) {
     if (locales_json_1.locales.includes(lang)) {
         const AXE_LOCALE = require(`axe-core/locales/${lang}.json`);
-        return {
-            locale: AXE_LOCALE
-        };
+        return AXE_LOCALE;
     }
     else {
-        return {};
+        return false;
     }
 }
-function axeLocation(lang) {
+function axeLocale(lang) {
     if (lang.length === 0 || lang === 'auto') {
         const language = (window.navigator.languages && window.navigator.languages[0]) || window.navigator.language;
         return requireLocation(language);
@@ -22,7 +21,9 @@ function axeLocation(lang) {
         return requireLocation(lang);
     }
 }
-exports.default = axeLocation;
-// dev
-console.log(locales_json_1.locales);
+exports.axeLocale = axeLocale;
+function getLocaleList() {
+    return locales_json_1.locales;
+}
+exports.getLocaleList = getLocaleList;
 //# sourceMappingURL=index.js.map
