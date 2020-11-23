@@ -18,3 +18,14 @@ test('Read Zombie Locale is Undefined', () => {
   const loc = axeLocale("zombie");
   expect( loc ).toBeFalsy();
 });
+
+test('Auto Language select (Mock de)', () => {
+
+  // Set browser Languages to 'de'
+  Object.defineProperty(window.navigator, "languages", {
+    value: ['de'],
+    writable: false
+  });
+  const loc = axeLocale("");
+  expect( loc.lang ).toBe("de");
+});

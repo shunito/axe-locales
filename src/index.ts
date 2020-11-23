@@ -17,7 +17,7 @@ function requireLocation(lang: string): any {
 }
 
 export function axeLocale (lang: string) {
-  if( lang.length === 0 || lang === 'auto'){
+  if( lang.length === 0 || lang === 'auto') {
     const language = (window.navigator.languages && window.navigator.languages[0]) || window.navigator.language;
     return requireLocation(language);
   }
