@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLocaleList = exports.axeLocale = void 0;
 const locales_json_1 = require("./locales.json");
-// comment
 function requireLocale(lang) {
     if (locales_json_1.locales.includes(lang)) {
         try {
