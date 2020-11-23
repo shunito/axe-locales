@@ -1,18 +1,18 @@
 {
   "name": "axe-locales",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shunito/axe-locales.git"
+  },
   "scripts": {
     "build": "npm-run-all clean tsc",
     "build:locales": "node ./bin/build-locales.js",
     "clean": "rimraf dist/*",
     "dev": "ts-node src/index.ts",
-    "prepublishOnly": "npm run build",
-    "postinstall": "npm-run-all build:locales build",
+    "prepublishOnly": "npm-run-all build:locales build",
     "test": "jest",
     "tsc": "tsc"
   },
@@ -22,12 +22,14 @@
   ],
   "author": "Shunsuke Ito <shunsuke.ito@gmail.com> (https://github.com/shunito/)",
   "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
+  },
   "devDependencies": {
     "@types/node": "^14.14.9",
     "axe-core": "^4.1.1",
     "jest": "^26.6.3",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.1.2"
   },
