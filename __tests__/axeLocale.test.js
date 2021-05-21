@@ -19,6 +19,12 @@ test('Read Zombie Locale is Undefined', () => {
   expect( loc.lang ).toBeUndefined();
 });
 
+test('Window is Undefined', () => {
+  window = undefined;
+  const loc = axeLocale("");
+  expect( loc.lang ).toBeUndefined();
+});
+
 test('Auto Language select (Mock de)', () => {
   // Set browser Languages to 'de'
   Object.defineProperty(window.navigator, "languages", {
