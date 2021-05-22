@@ -28,3 +28,11 @@ test('Auto Language select (Mock de)', () => {
   const loc = axeLocale("");
   expect( loc.lang ).toBe("de");
 });
+
+test('Window is Undefined', () => {
+  delete window.navigator;
+  window.navigator = { reload: jest.fn() };
+  window.navigator.reload();
+  const loc = axeLocale("auto");
+  expect( loc.lang ).toBeUndefined();
+});
