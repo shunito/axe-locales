@@ -18,6 +18,8 @@ function requireLocale(lang) {
 }
 function axeLocale(lang) {
     if (lang.length === 0 || lang === 'auto') {
+        if (window === undefined)
+            return {};
         const language = (window.navigator.languages && window.navigator.languages[0]) || window.navigator.language;
         return requireLocale(language);
     }
