@@ -23,9 +23,8 @@ const locale = axeLocale("auto"); // Auto Select(from browser setting)
 const locale = axeLocale("zombie"); // ->  {}
 
 // get locale list
-const list = getLocaleList(); // -> ["da", "de", "es", "eu", "fr", "ja", "ko", "nl", "pt_BR"]
+const list = getLocaleList(); // -> ["da", "de", "es", "eu", "fr", "ja", "ko", "nl", "pl", "pt_BR"]
 ```
-
 
 ## Register Axe plugins.
 
