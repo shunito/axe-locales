@@ -1,4 +1,4 @@
-declare type locale = string;
+type locale = string;
 interface localeArray extends Array<locale> {
 }
 export declare function axeLocale(lang: string): Object;

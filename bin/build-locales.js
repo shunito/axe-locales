@@ -24,6 +24,10 @@ const buildLocaleFile = (dirPath) => {
       }
     }
 
+    const locales = localeJson.locales.filter((locale) => locale !== '_template');
+    localeJson.locales = locales;
+
+
     const jsonString = JSON.stringify(localeJson);
 
     // Write Locale list
